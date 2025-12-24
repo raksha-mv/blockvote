@@ -1,0 +1,7 @@
+{
+  "name": "BlockVote - Blockchain Voting System",
+  "description": "A decentralized voting platform with glassmorphic UI, moderated polls, and an AI assistant named BlockAssist.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

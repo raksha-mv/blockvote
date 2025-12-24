@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlockVote - Decentralized Voting System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            montserrat: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            'primary-pastel': '#8b9ef7',
+            'secondary-pastel': '#6ee7de',
+            'accent-pastel': '#f07d9e',
+            'info-pastel': '#5eb3e6',
+            'success-pastel': '#5ee899',
+            'dark-bg': '#0f1419',
+            'dark-secondary': '#1a1f2e',
+            'dark-card': '#212836',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(120deg, #0f1419 0%, #1a1f2e 100%);
+      min-height: 100vh;
+      color: #e8eaed;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+    .background-animation {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: radial-gradient(circle at 20% 12%, #6ee7de 8%, transparent 50%),
+                  radial-gradient(circle at 70% 90%, #f07d9e 12%, transparent 60%),
+                  radial-gradient(circle at 51% 45%, #5eb3e6 6%, transparent 40%);
+      animation: backgroundMove 24s ease-in-out infinite alternate;
+      filter: blur(28px);
+      opacity: 0.12;
+    }
+    @keyframes backgroundMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(30px, 30px); }
+    }
+    .glass {
+      background: rgba(33, 40, 54, 0.4);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 14px 44px rgba(0, 0, 0, 0.45);
+    }
+    .btn-gradient {
+      background: linear-gradient(90deg, rgba(139,158,247,0.3) 31%, rgba(110,231,222,0.3) 84%);
+      border: 1px solid rgba(139,158,247,0.5);
+      transition: all 0.3s;
+    }
+    .btn-gradient:hover {
+      background: linear-gradient(90deg, rgba(139,158,247,0.4) 31%, rgba(110,231,222,0.4) 84%);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="font-montserrat">
+  <div class="background-animation"></div>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
